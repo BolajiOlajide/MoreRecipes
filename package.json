@@ -5,6 +5,11 @@
   "repository": "git@github.com:BolajiOlajide/MoreRecipes.git",
   "author": "Bolaji Olajide",
   "license": "MIT",
+  "scripts": {
+    "start": "yarn api.js",
+    "migrate": "sequelize db:migrate",
+    "sequelize": "sequelize $*"
+  },
   "dependencies": {
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
