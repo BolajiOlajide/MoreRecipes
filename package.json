@@ -6,7 +6,8 @@
   "author": "Bolaji Olajide",
   "license": "MIT",
   "scripts": {
-    "start": "yarn api.js",
+    "dev": "nodemon api.js",
+    "start": "node api.js",
     "migrate": "sequelize db:migrate",
     "sequelize": "sequelize $*"
   },
