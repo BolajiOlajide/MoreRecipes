@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 
 // utils
 const apiResponse = require('../utils/apiResponse');
+const jwtConfig = require('../utils/jwtConfig');
 
 
 dotenv.config();
@@ -18,7 +19,7 @@ const Auth = {
       .send({ message: 'No token supplied' });
     }
 
-    jwt.verify(token, SECRET_KEY, (err, decoded) => {
+    return jwt.verify(token, SECRET_KEY, jwtConfig, (err, decoded) => {
       if (err) {
         return response.status(401)
             .send({ message: 'Token Invalid' });
