@@ -1,12 +1,15 @@
 'use strict';
-const bcrpyt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     username: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      set(value) {
+        this.setDataValue('username', value.toLowerCase());
+      }
     },
     password: {
       type: DataTypes.STRING,
@@ -16,8 +19,7 @@ module.exports = (sequelize, DataTypes) => {
           if (value.length < 8) {
             throw new Error('Password must be greater than 8 characters');
           }
-
-          const salt = bcrypt.genSaltSync(30);
+          const salt = bcrypt.genSaltSync(10);
           const hash = bcrypt.hashSync(value, salt);
           this.setDataValue('password', hash);
         }
