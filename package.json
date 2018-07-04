@@ -8,14 +8,17 @@
   "scripts": {
     "dev": "nodemon api.js",
     "start": "node api.js",
-    "migrate": "sequelize db:migrate",
+    "migrate": "yarn sequelize db:migrate",
     "sequelize": "sequelize $*"
   },
   "dependencies": {
+    "bcrypt": "^2.0.1",
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
+    "pg": "^7.4.3",
     "sequelize": "^4.38.0",
-    "sequelize-cli": "^4.0.0"
+    "sequelize-cli": "^4.0.0",
+    "winston": "^3.0.0"
   }
 }
