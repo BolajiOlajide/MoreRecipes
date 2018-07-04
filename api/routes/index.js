@@ -10,6 +10,9 @@ const apiResponse = require('../utils/apiResponse');
 // schemas
 const authSchema = require('../schemas/auth.schema');
 
+// middlewares
+const { verifyToken } = require('../middlewares/tokenValidator');
+
 
 module.exports = (app) => {
   app.post('/api/auth/signup', AuthCtrl.createUser);
