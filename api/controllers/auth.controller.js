@@ -6,18 +6,12 @@ const models = require('../models');
 
 // utils
 const apiResponse = require('../utils/apiResponse');
+const jwtConfig = require('../utils/jwtConfig');
 
 
 dotenv.config();
 const { User } = models;
 const { SECRET_KEY } = process.env;
-const audience = process.env.JWT_AUDIENCE;
-const algorithm = process.env.JWT_ALGO
-const jwtConfig = {
-  expiresIn: '24h',
-  algorithm,
-  audience,
-};
 
 /**
  * controller for handling user requests
